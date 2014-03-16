@@ -18,13 +18,14 @@
     </tr>
   </thead>
   <tbody>
-    {{#each}}
+    {{#each itemController='todo'}}
     <tr class="task">
       <td>{{_view.contentIndex}}</td>
       <td>
         {{name}}
       </td>
       <td>
+        <button {{action "removeTodo"}} class="btn btn-success js-done">Done</button>
       </td>
     </tr>
     {{/each}}
