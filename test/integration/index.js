@@ -21,6 +21,7 @@ describe('Scenarios:', function() {
         Todos.reset();
         visit('/');
         fillIn('.task-name', "New task");
+        fillIn('.task-priority', "medium");
         click('button.js-add');
       });
 
@@ -29,6 +30,10 @@ describe('Scenarios:', function() {
           expect($('tr.task:last').text()).to.match(/New task/);
           expect($('tr.task')).to.have.length(4);
         });
+      });
+
+      it("should set priority", function() {
+        expect($("span.priority:last").text()).to.match(/medium/);
       });
 
       it('should clear the new task box', function() {
