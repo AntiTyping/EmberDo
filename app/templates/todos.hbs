@@ -1,0 +1,23 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th class="span1">#</th>
+      <th class="js-task-counter">Tasks</th>
+      <th class="span1"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each}}
+    <tr class="task">
+      <td>{{_view.contentIndex}}</td>
+      <td>
+        {{name}}
+      </td>
+      <td>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+
