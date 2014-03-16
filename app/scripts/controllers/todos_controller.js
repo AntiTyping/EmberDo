@@ -2,6 +2,7 @@ Todos.TodosController = Ember.ArrayController.extend({
 
   priorities: ["high", "medium", "low"],
 
+
   actions: {
     createTodo: function() {
       var name = this.get('newName');
@@ -24,9 +25,25 @@ Todos.TodosController = Ember.ArrayController.extend({
 });
 
 Todos.TodosIndexController = Ember.ArrayController.extend({
+  needs: ['application'],
+
+  keywords: Ember.computed.alias('controllers.application.keywords'),
+
+  filteredTodos: function() {
+    var keywords = this.get('keywords');
+    var todos = this.get('model');
+    if (keywords) {
+      return todos.filter(function(todo) {
+        return todo.get('name').indexOf(keywords) > -1;
+      });
+    } else {
+      return todos;
+    }
+  }.property('keywords', '@each.name'),
+
   todoCount: function() {
-    return this.get('length');
-  }.property('@each.name'),
+    return this.get('filteredTodos').get('length');
+  }.property('filteredTodos'),
 
   inflection: function() {
     var count = this.get('todoCount');

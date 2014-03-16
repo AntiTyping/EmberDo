@@ -1,9 +1,3 @@
-Todos.TodosRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.find('todo');
-  }
-});
-
 Todos.TodosIndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('todo');

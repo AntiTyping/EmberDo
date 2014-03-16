@@ -124,4 +124,12 @@ describe('Scenarios:', function() {
       expect($(".js-task-counter").text()).to.equal("3 tasks");
     });
   });
+
+  describe("Task search", function() {
+    it("should only display task that match the keyword", function() {
+      fillIn(".query-name", "Medium");
+      expect($('tr.task')).to.have.length(1);
+      expect($('tr.task').text()).to.match(/Medium priority task/);
+    });
+  });
 });

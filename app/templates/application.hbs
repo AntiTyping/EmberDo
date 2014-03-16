@@ -8,6 +8,10 @@
           <li><a href="#/about">About</a></li>
         </ul>
         <div class="navbar-form form-search pull-right">
+          <div class="input-append">
+            {{input type="text" class="span2 search-query query-name" placeholder="Search" value=keywords}}
+            <button {{action 'clearKeywords'}} class="btn js-clear">Clear</button>
+          </div>
         </div>
       </div>
     </div>
@@ -17,23 +21,23 @@
 <div class="container js-main">
   <div class="row">
     <div class="span3">
-     <div class="well" style="max-width: 340px; padding: 8px 0;">
-       <ul class="nav nav-list">
-         <li class="nav-header">Priority</li>
-         <li>
-           {{#link-to "todos.index" class="priority"}}All{{/link-to}}
-         </li>
-         <li>
-           {{#link-to "todos.high" class="priority"}}High{{/link-to}}
-         </li>
-         <li>
-           {{#link-to "todos.medium" class="priority"}}Medium{{/link-to}}
-         </li>
-         <li>
-           {{#link-to "todos.low" class="priority"}}Low{{/link-to}}
-         </li>
-       </ul>
-     </div>
+      <div class="well" style="max-width: 340px; padding: 8px 0;">
+        <ul class="nav nav-list">
+          <li class="nav-header">Priority</li>
+          <li>
+            {{#link-to "todos.index" class="priority"}}All{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "todos.high" class="priority"}}High{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "todos.medium" class="priority"}}Medium{{/link-to}}
+          </li>
+          <li>
+            {{#link-to "todos.low" class="priority"}}Low{{/link-to}}
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="span9">
       {{outlet}}
