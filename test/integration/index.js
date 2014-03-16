@@ -76,6 +76,11 @@ describe('Scenarios:', function() {
         $("a.priority:contains('High')").click();
         expect($('tr.task')).to.have.length(1);
       });
+
+      it("should display number of visible tasks", function() {
+        $("a.priority:contains('High')").click();
+        expect($(".js-task-counter").text()).to.equal("1 task");
+      });
     });
 
     describe("when medium priority is selected", function() {
@@ -83,9 +88,19 @@ describe('Scenarios:', function() {
         $("a.priority:contains('Medium')").click();
         expect($('tr.task')).to.have.length(1);
       });
+
+      it("should display number of visible tasks", function() {
+        $("a.priority:contains('Medium')").click();
+        expect($(".js-task-counter").text()).to.equal("1 task")
+      });
     });
 
     describe("when low priority is selected", function() {
+      it("should display only medium priority tasks", function() {
+        $("a.priority:contains('Low')").click();
+        expect($('tr.task')).to.have.length(1);
+      });
+
       it("should display only medium priority tasks", function() {
         $("a.priority:contains('Low')").click();
         expect($('tr.task')).to.have.length(1);
@@ -97,6 +112,16 @@ describe('Scenarios:', function() {
         $("a.priority:contains('All')").click();
         expect($('tr.task')).to.have.length(3);
       });
+
+      it("should display number of visible tasks", function() {
+        expect($(".js-task-counter").text()).to.equal("3 tasks");
+      });
+    });
+  });
+
+  describe("Task counter", function() {
+    it("should display number of visible tasks", function() {
+      expect($(".js-task-counter").text()).to.equal("3 tasks");
     });
   });
 });
