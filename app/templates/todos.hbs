@@ -1,3 +1,14 @@
+<div class="well">
+  <div class="input-append">
+      {{input id="appendedInputButton" type="text" class="span6 task-name" placeholder="Add new task here" value=newName action="createTodo"}}
+      <button {{action "createTodo"}} class="btn btn-primary js-add" type="button">Add</button>
+  </div>
+
+  <div id="validation" class="alert alert-error hide">
+    Task name should be at least 3 characters long.
+  </div>
+</div>
+
 <table class="table table-striped">
   <thead>
     <tr>
