@@ -20,7 +20,6 @@ Todos.TodosController = Ember.ArrayController.extend({
       this.set('newName', '');
       todo.save();
     }
-
   }
 });
 

@@ -69,4 +69,34 @@ describe('Scenarios:', function() {
       expect($('tr.task')).to.have.length(2);
     });
   });
+
+  describe("Filter by priority", function() {
+    describe("when high priority is selected", function() {
+      it("should display only high priority tasks", function() {
+        $("a.priority:contains('High')").click();
+        expect($('tr.task')).to.have.length(1);
+      });
+    });
+
+    describe("when medium priority is selected", function() {
+      it("should display only medium priority tasks", function() {
+        $("a.priority:contains('Medium')").click();
+        expect($('tr.task')).to.have.length(1);
+      });
+    });
+
+    describe("when low priority is selected", function() {
+      it("should display only medium priority tasks", function() {
+        $("a.priority:contains('Low')").click();
+        expect($('tr.task')).to.have.length(1);
+      });
+    });
+
+    describe("when no priority is selected", function() {
+      it("should display all tasks", function() {
+        $("a.priority:contains('All')").click();
+        expect($('tr.task')).to.have.length(3);
+      });
+    });
+  });
 });

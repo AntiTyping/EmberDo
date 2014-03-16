@@ -19,18 +19,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each itemController='todo'}}
-    <tr class="task">
-      <td>{{_view.contentIndex}}</td>
-      <td>
-        {{name}}
-        <span class="priority label">{{priority}}</span>
-      </td>
-      <td>
-        <button {{action "removeTodo"}} class="btn btn-success js-done">Done</button>
-      </td>
-    </tr>
-    {{/each}}
+    {{outlet}}
   </tbody>
 </table>
 
