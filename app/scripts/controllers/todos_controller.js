@@ -23,3 +23,17 @@ Todos.TodosController = Ember.ArrayController.extend({
   }
 });
 
+Todos.TodosIndexController = Ember.ArrayController.extend({
+  todoCount: function() {
+    return this.get('length');
+  }.property('@each.name'),
+
+  inflection: function() {
+    var count = this.get('todoCount');
+    if (count == 1) {
+      return "task";
+    };
+    return "tasks";
+  }.property('todoCount'),
+});
+
